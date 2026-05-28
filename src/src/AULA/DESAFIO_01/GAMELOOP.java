@@ -1,9 +1,6 @@
 package AULA.DESAFIO_01;
 
 import java.awt.event.ActionEvent;
-
-
-
 import java.awt.event.ActionListener;
 
 import javax.swing.Timer;
@@ -14,7 +11,7 @@ public class GAMELOOP extends Thread implements Runnable, ActionListener{
 	private long ContadorDeFPS;
 	private escutadorTeclado ET;
 	public Painel cenaDoJogo;
-	public escutadorTeclado eT;
+
 	
 	
 	public GAMELOOP(Painel cenaDoJogo, escutadorTeclado eT) {
@@ -59,7 +56,6 @@ public class GAMELOOP extends Thread implements Runnable, ActionListener{
 				
 				VerificadorDeColisao colisao = new VerificadorDeColisao();
 				boolean bateu = colisao.OcorreuColisao(this.cenaDoJogo.Jogador, this.cenaDoJogo.cenario, direcao);
-				System.out.println("colisao : " + bateu);
 				if (bateu == false ) {
 					cenaDoJogo.Jogador.atualizaPosicaoJogador(ET.movePraEsq, ET.movePraDir, 
 							ET.movePraCima, ET.movePraBaixo);

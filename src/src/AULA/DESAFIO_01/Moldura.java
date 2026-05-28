@@ -1,15 +1,13 @@
 package AULA.DESAFIO_01;
 
 import java.awt.BorderLayout;
-
 import javax.swing.JFrame;
-
 public class Moldura extends JFrame {
-	public Moldura() {
-		this.setAlwaysOnTop(true);
-		this.setResizable(false);
-		this.setTitle("Cap11 - COLLISION_DETECTION");
-		this.setLayout(new BorderLayout());
+    public Moldura() {
+        this.setAlwaysOnTop(true);
+        this.setResizable(false);
+        this.setTitle("Cap11 - COLLISION_DETECTION");
+        this.setLayout(new BorderLayout());
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         Painel PC = new Painel("Centro");
         Painel PS = new Painel("Sul");
@@ -19,6 +17,8 @@ public class Moldura extends JFrame {
         this.pack();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+        // garante foco no painel central para receber eventos de teclado
+        PC.requestFocusInWindow();
 
-		}
-	}
+    }
+}

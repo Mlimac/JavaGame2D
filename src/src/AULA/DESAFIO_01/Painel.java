@@ -1,10 +1,8 @@
 package AULA.DESAFIO_01;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-
 import javax.swing.JPanel;
 
 public class Painel extends JPanel {
@@ -17,9 +15,6 @@ public class Painel extends JPanel {
 	
 	public Painel(String Posicao) {
         this.Posicao = Posicao;
-        
-
-       
             if (Posicao.equals("Centro")) {
                 this.setBackground(Color.BLACK);
                 this.setPreferredSize(new Dimension(768, 480));
@@ -35,9 +30,7 @@ public class Painel extends JPanel {
 
                 SL = new SpriteLoop(this, ET);
                 SL.start();
-            
-        
-
+    
         } else {
             this.setPreferredSize(new Dimension(768, 100));
             this.setBackground(Color.YELLOW);
