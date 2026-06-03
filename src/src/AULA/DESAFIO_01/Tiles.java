@@ -35,14 +35,14 @@ public class Tiles {
 	}
 
 	private void carregaImagemTile() {
-		this.imgGrass = loadImage("res_cenario/tiles/grade.png");
-		this.imgSand = loadImage("res_cenario/tiles/chao_claro.png");
-		this.imgWater = loadImage("res_cenario/tiles/chao_escuro.png");
-		this.imgWall = loadImage("res_cenario/tiles/ceu_estrelado.png");
+		this.imgGrass = loadImage("/tiles/grade.png");
+		this.imgSand = loadImage("/tiles/chao_claro.png");
+		this.imgWater = loadImage("/tiles/chao_escuro.png");
+		this.imgWall = loadImage("/tiles/ceu_estrelado.png");
 
 		// Imagens da porta e da chave
-		this.imgDoor = loadImage("res_cenario/tiles/door.png");
-		this.imgKey = loadImage("res_cenario/tiles/key.png");
+		this.imgDoor = loadImage("/tiles/door.png");
+		this.imgKey = loadImage("/tiles/key.png");
 	}
 
 	private Image loadImage(String resourcePath) {
