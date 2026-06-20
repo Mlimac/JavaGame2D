@@ -23,8 +23,8 @@ public class VerificadorDeColisao {
 
 		int valorTile = CenaDoJogo.cenarioValido[linha][coluna];
 
-		// tile 4 é porta trancada
-		if (valorTile == 4) {
+		// tile 7 é porta trancada
+		if (valorTile == 7) {
 			boolean abriu = CenaDoJogo.tentarAbrirPorta(linha, coluna, Jogador);
 
 			// Se abriu, não colide.
