@@ -72,7 +72,7 @@ public class Tiles {
 	private Image imgchaocenario5;
 	private Image imgchao1cenario6;
 	private Image imgchao2cenario6;
-
+    private Image imgpizza;
 
 	private boolean colisao;
 
@@ -170,6 +170,7 @@ public class Tiles {
 		this.imgDoor = loadImage("res_cenario/tiles/door.png");
 		this.imgKey = loadImage("res_cenario/tiles/key.png");
 		this.imgSilverKey = loadImage("res_cenario/tiles/silver-key.png");
+		this.imgpizza = loadImage("res_cenario/tiles/pizza.png");
 	}
 
 	private Image loadImage(String resourcePath) {
@@ -497,6 +498,11 @@ public class Tiles {
 			this.imgAtual = this.imgSilverKey;
 			this.colisao = false;
 		}
+		// tile 58: pizza
+		if (valorDaPeca == 58) {
+			this.imgAtual = this.imgpizza;
+			this.colisao = false;
+		}
 	}
 
 	public boolean isColisao() {
@@ -507,3 +513,4 @@ public class Tiles {
 		this.colisao = colisao;
 	}
 }
+

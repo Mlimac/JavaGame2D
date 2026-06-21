@@ -28,6 +28,7 @@ public class Player {
 	// Quantidade de chaves do jogador
 	private int chavesDouradas = 0;
 	private int chavesPrateadas = 0;
+	private int quantidadePizzas = 0; 
 
 	public Player() {
 		this.posX = 200;
@@ -147,6 +148,9 @@ public void adicionarChaveDourada() {
 public void adicionarChavePrateada() {
     chavesPrateadas++;
 }
+public void adicionarPizza() {
+    this.quantidadePizzas++;
+}
 
 public boolean temChaveDourada() {
     return chavesDouradas > 0;
@@ -172,5 +176,9 @@ public int getChavesDouradas() {
 
 public int getChavesPrateadas() {
     return chavesPrateadas;
+}
+
+public int getQuantidadePizzas() {
+    return this.quantidadePizzas;
 }
 }
