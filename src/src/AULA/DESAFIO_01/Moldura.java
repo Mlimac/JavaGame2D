@@ -2,6 +2,7 @@ package AULA.DESAFIO_01;
 
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
 public class Moldura extends JFrame {
 
@@ -12,19 +13,34 @@ public class Moldura extends JFrame {
         this.setLayout(new BorderLayout());
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        // O painel central será criado primeiro
-        Painel PC = new Painel("Centro");
-
-        // O painel sul recebe o painel central como referência
-        Painel PS = new Painel("Sul", PC);
-
-        this.add(PC, BorderLayout.CENTER);
-        this.add(PS, BorderLayout.SOUTH);
+        // Começa na tela de início em vez do jogo direto
+        TelaInicio telaInicio = new TelaInicio(this);
+        this.add(telaInicio, BorderLayout.CENTER);
 
         this.pack();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
 
-        PC.requestFocusInWindow();
+        telaInicio.requestFocusInWindow();
+    }
+
+    // Chamado pela TelaInicio quando o jogador escolhe "Iniciar Jogo"
+    public void iniciarJogo() {
+        SwingUtilities.invokeLater(() -> {
+            this.getContentPane().removeAll();
+
+            Painel PC = new Painel("Centro");
+            Painel PS = new Painel("Sul", PC);
+
+            this.add(PC, BorderLayout.CENTER);
+            this.add(PS, BorderLayout.SOUTH);
+
+            this.revalidate();
+            this.repaint();
+            this.pack();
+            this.setLocationRelativeTo(null);
+
+            PC.requestFocusInWindow();
+        });
     }
 }
