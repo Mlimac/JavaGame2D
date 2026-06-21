@@ -7,6 +7,7 @@ public class tileMap {
     Tiles pecaDoCenario;
     int[][] cenarioValido;
     private String cenaValida;
+    private boolean avisoGrade = false;
     int[][] cenario1DoJogo = {
             { 19, 19, 19, 51, 51, 19, 2, 2, 2, 2, 19, 18, 18, 18, 18, 19 },
             { 19, 13, 14, 49, 50, 19, 2, 2, 2, 2, 19, 17, 17, 17, 17, 19 },
@@ -52,7 +53,7 @@ public class tileMap {
             { 12, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 3, 3, 3, 12 },
             { 12, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 3, 45, 45, 12 },
             { 48, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 3, 45, 45, 12 },
-            { 12, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 3, 45, 45, 12 },
+            { 12, 45, 45, 45, 5, 45, 45, 45, 45, 45, 45, 45, 3, 45, 45, 12 },
             { 12, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 3, 3, 3, 12 },
             { 48, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 12 },
             { 12, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 12 },
@@ -64,11 +65,11 @@ public class tileMap {
             { 12, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 12 },
             { 48, 54, 54, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12 },
             { 12, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 12 },
-            { 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 54, 54, 12 },
+            { 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 57, 54, 12 },
             { 12, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 12 },
             { 48, 54, 54, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 46, 12 },
             { 12, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 7 },
-            { 12, 5, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 7 },
+            { 12, 57, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 54, 7 },
             { 12, 47, 12, 12, 47, 12, 12, 47, 12, 12, 47, 12, 12, 12, 47, 12 },
     };
 
@@ -138,45 +139,69 @@ public class tileMap {
         for (int lin = 0; lin < this.cenarioValido.length; lin++) {
             for (int col = 0; col < this.cenarioValido[0].length; col++) {
 
-                if (this.cenarioValido[lin][col] == 5) {
+                int tile = this.cenarioValido[lin][col];
+
+                if (tile == 5 || tile == 57) {
                     java.awt.Rectangle areaChave = new java.awt.Rectangle(col * 48, lin * 48, 48, 48);
 
                     if (jogador.areaColisao.intersects(areaChave)) {
-                        jogador.adicionarChave();
 
-                        // Remove a chave do mapa, transformando em chão
-                        this.cenarioValido[lin][col] = 2;
+                        if(tile == 5) {
+                             jogador.adicionarChaveDourada();
+                             this.cenarioValido[lin][col] = 45;
+                        }
+  
+
+                        if(tile == 57) {
+                            jogador.adicionarChavePrateada();
+                            avisoGrade = false;
+                            this.cenarioValido[lin][col] = 54;
+                            }
+                        }
                     }
                 }
             }
         }
-    }
+    
 
-    public boolean tentarAbrirPorta(int linha, int coluna, Player jogador) {
-        if (linha < 0 || linha >= this.cenarioValido.length) {
-            return false;
+   public boolean tentarAbrirPorta(int linha, int coluna, Player jogador) {
+
+    int tile = this.cenarioValido[linha][coluna];
+
+    // Porta dourada
+    if(tile == 7) {
+
+        if(jogador.temChaveDourada()) {
+
+            jogador.usarChaveDourada();
+            this.cenarioValido[linha][coluna] = 54;
+
+            System.out.println("Porta aberta!");
+            return true;
         }
-
-        if (coluna < 0 || coluna >= this.cenarioValido[0].length) {
-            return false;
-        }
-
-        if (this.cenarioValido[linha][coluna] == 7) {
-            if (jogador.temChave()) {
-                jogador.usarChave();
-
-                // Abre a porta, transformando ela em chão
-                this.cenarioValido[linha][coluna] = 2;
-
-                System.out.println("Porta aberta!");
-                return true;
-            } else {
-                System.out.println("A porta está trancada. Você precisa de uma chave.");
-                return false;
-            }
-        }
+        System.out.println("Você precisa de uma chave dourada para abrir essa porta!");
 
         return false;
     }
 
+    // Grade / cela (chave prateada)
+    if(tile == 3) {
+
+        if(jogador.temChavePrateada()) {
+
+            jogador.usarChavePrateada();
+            this.cenarioValido[linha][coluna] = 55;
+
+            System.out.println("Cela aberta!");
+            return true;
+        }
+
+        System.out.println("Você precisa de uma chave prateada para abrir essa cela!");
+        
+
+        return false;
+    }
+
+    return false;
+}
 }

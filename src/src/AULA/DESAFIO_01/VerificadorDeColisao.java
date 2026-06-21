@@ -24,7 +24,7 @@ public class VerificadorDeColisao {
 		int valorTile = CenaDoJogo.cenarioValido[linha][coluna];
 
 		// tile 7 é porta trancada
-		if (valorTile == 7) {
+		if (valorTile == 7 || valorTile == 3) {
 			boolean abriu = CenaDoJogo.tentarAbrirPorta(linha, coluna, Jogador);
 
 			// Se abriu, não colide.
@@ -152,11 +152,12 @@ public class VerificadorDeColisao {
 			}
 		}
 
-		System.out.println("colEsqX  = " + this.colEsqX);
-		System.out.println("colDirX  = " + this.colDirX);
-		System.out.println("rowTopoY = " + this.rowTopoY);
-		System.out.println("rowBaseY = " + this.rowBaseY);
-		System.out.println("Chaves   = " + Jogador.getQuantidadeChaves());
+		//System.out.println("colEsqX  = " + this.colEsqX);
+		//System.out.println("colDirX  = " + this.colDirX);
+		//System.out.println("rowTopoY = " + this.rowTopoY);
+		//System.out.println("rowBaseY = " + this.rowBaseY);
+		System.out.println("Chaves Douradas = " + Jogador.getChavesDouradas());
+		System.out.println("Chaves Prateadas = " + Jogador.getChavesPrateadas());
 		System.out.println("-------------------------------");
 
 		return colidiu;

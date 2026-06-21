@@ -20,6 +20,7 @@ public class Tiles {
 	private Image imgAguaEsgoto;
 	private Image imgDoor;
 	private Image imgKey;
+	private Image imgSilverKey;
 	private Image imgBueiro;
 	private Image imgCama;
 	private Image imgPortaCenario5;
@@ -168,6 +169,7 @@ public class Tiles {
 		// Imagens da porta e da chave
 		this.imgDoor = loadImage("res_cenario/tiles/door.png");
 		this.imgKey = loadImage("res_cenario/tiles/key.png");
+		this.imgSilverKey = loadImage("res_cenario/tiles/silver-key.png");
 	}
 
 	private Image loadImage(String resourcePath) {
@@ -488,6 +490,11 @@ public class Tiles {
 		 // tile 56: chão2 cenário 6 
 		if(valorDaPeca == 56) {
 			this.imgAtual = this.imgchao2cenario6;
+			this.colisao = false;
+		}
+		//	tile 57: chave prateada
+		if (valorDaPeca == 57) {
+			this.imgAtual = this.imgSilverKey;
 			this.colisao = false;
 		}
 	}

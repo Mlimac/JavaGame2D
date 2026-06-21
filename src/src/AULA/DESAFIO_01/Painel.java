@@ -27,7 +27,7 @@ public class Painel extends JPanel {
 		this.Posicao = Posicao;
 
 		if (Posicao.equals("Centro")) {
-			this.setBackground(Color.BLACK);
+			setBackground(new Color(0, 0, 0, 0)); // transparente);
 			this.setPreferredSize(new Dimension(768, 480));
 
 			ET = new escutadorTeclado();
@@ -79,13 +79,16 @@ public class Painel extends JPanel {
 		D2.setColor(Color.BLACK);
 		D2.setFont(new Font("Arial", Font.BOLD, 24));
 
-		int quantidadeChaves = 0;
+		int douradas = 0;
+		int prateadas = 0;
 
 		if (painelCentral != null && painelCentral.Jogador != null) {
-			quantidadeChaves = painelCentral.Jogador.getQuantidadeChaves();
-		}
-
-		D2.drawString("Inventário", 30, 35);
-		D2.drawString("Chaves: " + quantidadeChaves, 30, 70);
-	}
+    		douradas = painelCentral.Jogador.getChavesDouradas();
+   			prateadas = painelCentral.Jogador.getChavesPrateadas();
 }
+
+			D2.drawString("Inventário", 30, 35);
+			D2.drawString("Chaves Douradas: " + douradas, 30, 70);
+			D2.drawString("Chaves Prateadas: " + prateadas, 300, 70);
+		}
+	}
