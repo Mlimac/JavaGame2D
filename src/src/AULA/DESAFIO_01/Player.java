@@ -26,7 +26,9 @@ public class Player {
 	private Image imagemPlayer;
 
 	// Quantidade de chaves do jogador
-	private int quantidadeChaves = 0;
+	private int chavesDouradas = 0;
+	private int chavesPrateadas = 0;
+	private int quantidadePizzas = 0; 
 
 	public Player() {
 		this.posX = 200;
@@ -139,30 +141,44 @@ public class Player {
 		}
 	}
 
-	// Adicionar chave ao jogador
-	public void adicionarChave() {
-		this.quantidadeChaves++;
-		System.out.println("Chave coletada! Total de chaves: " + this.quantidadeChaves);
-	}
+public void adicionarChaveDourada() {
+    chavesDouradas++;
+}
 
-	// Verifica se tem chave
-	public boolean temChave() {
-		return this.quantidadeChaves > 0;
-	}
+public void adicionarChavePrateada() {
+    chavesPrateadas++;
+}
+public void adicionarPizza() {
+    this.quantidadePizzas++;
+}
 
-	// Usa uma chave para abrir porta
-	public boolean usarChave() {
-		if (this.quantidadeChaves > 0) {
-			this.quantidadeChaves--;
-			System.out.println("Chave usada! Chaves restantes: " + this.quantidadeChaves);
-			return true;
-		}
+public boolean temChaveDourada() {
+    return chavesDouradas > 0;
+}
 
-		return false;
-	}
+public boolean temChavePrateada() {
+    return chavesPrateadas > 0;
+}
 
-	// Apenas para mostrar ou consultar
-	public int getQuantidadeChaves() {
-		return this.quantidadeChaves;
-	}
+public void usarChaveDourada() {
+    if (chavesDouradas > 0)
+        chavesDouradas--;
+}
+
+public void usarChavePrateada() {
+    if (chavesPrateadas > 0)
+        chavesPrateadas--;
+}
+
+public int getChavesDouradas() {
+    return chavesDouradas;
+}
+
+public int getChavesPrateadas() {
+    return chavesPrateadas;
+}
+
+public int getQuantidadePizzas() {
+    return this.quantidadePizzas;
+}
 }

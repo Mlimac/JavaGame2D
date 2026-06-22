@@ -81,6 +81,7 @@ public class GAMELOOP extends Thread implements Runnable, ActionListener {
 
 				// Verifica se o jogador pegou alguma chave
 				cenaDoJogo.cenario.coletarChaveSeEncostar(cenaDoJogo.Jogador);
+				cenaDoJogo.cenario.coletarPizzaSeEncostar(cenaDoJogo.Jogador);
 
 				cenaDoJogo.repaint();
 
