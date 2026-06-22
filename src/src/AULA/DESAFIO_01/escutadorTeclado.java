@@ -11,10 +11,10 @@ public class escutadorTeclado implements KeyListener{
 	public void keyPressed(KeyEvent e) {
         int tecla = e.getKeyCode();
 
-        if (tecla == 87) { // CIMA
+        if (tecla == 38) { // CIMA
             movePraCima = true;
         }
-        if (tecla == 83) { // BAIXO
+        if (tecla == 40) { // BAIXO
             movePraBaixo = true;
         }
         if (tecla == 37) { // ESQUERDA
@@ -29,10 +29,10 @@ public class escutadorTeclado implements KeyListener{
     public void keyReleased(KeyEvent e) {
         int tecla = e.getKeyCode();
 
-        if (tecla == 87) {
+        if (tecla == 38) {
             movePraCima = false;
         }
-        if (tecla == 83) {
+        if (tecla == 40) {
             movePraBaixo = false;
         }
         if (tecla == 37) {
