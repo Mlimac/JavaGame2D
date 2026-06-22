@@ -44,10 +44,10 @@ public class Player {
 		this.areaColisao.height = this.Altu / 2;
 
 		for (int i = 0; i < 3; i++) {
-			this.imgPlayerDown[i] = loadImage("res_cenario/PLAYERS/down" + (i + 1) + ".png");
-			this.imgPlayerRight[i] = loadImage("res_cenario/PLAYERS/right" + (i + 1) + ".png");
-			this.imgPlayerLeft[i] = loadImage("res_cenario/PLAYERS/left" + (i + 1) + ".png");
-			this.imgPlayerUp[i] = loadImage("res_cenario/PLAYERS/up" + (i + 1) + ".png");
+			this.imgPlayerDown[i] = loadImage("/PLAYERS/down" + (i + 1) + ".png");
+			this.imgPlayerRight[i] = loadImage("/PLAYERS/right" + (i + 1) + ".png");
+			this.imgPlayerLeft[i] = loadImage("/PLAYERS/left" + (i + 1) + ".png");
+			this.imgPlayerUp[i] = loadImage("/PLAYERS/up" + (i + 1) + ".png");
 		}
 
 		this.imagemPlayer = this.imgPlayerDown[this.frameJogador];

@@ -88,6 +88,7 @@ public class Tiles {
 	}
 
 	private void carregaImagemTile() {
+    
 		this.imggrade = loadImage("res_cenario/tiles/grade.png");
 		this.imgSand = loadImage("res_cenario/tiles/chao_claro.png");
 		java.net.URL urlAg = this.getClass().getClassLoader().getResource("res_cenario/tiles/agua_esgoto.png");
