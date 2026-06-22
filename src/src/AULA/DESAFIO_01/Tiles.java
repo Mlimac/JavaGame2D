@@ -73,6 +73,8 @@ public class Tiles {
 	private Image imgchao1cenario6;
 	private Image imgchao2cenario6;
 	private Image imgpizza;
+	private Image imgportacenario4_E;
+	private Image imgportacenario4_D;
 
 	// imagens do inventario
 	private Image imgSuperiorEsquerdo;
@@ -140,8 +142,11 @@ public class Tiles {
 		this.imgparedeescura2 = loadImage("res_cenario/tiles/parede_escura2.png");
 		this.imgchaocenario5 = loadImage("res_cenario/tiles/chao_cenario5.png");
 		this.imgPortaCenario5 = loadImage("res_cenario/tiles/porta_cenario05.png");
+		this.imgportacenario4_E = loadImage("res_cenario/tiles/porta_cenario4_E.png");
+		this.imgportacenario4_D = loadImage("res_cenario/tiles/porta_cenario4_D.png");
 		this.imgchao1cenario6 = loadImage("res_cenario/tiles/chao1_cenario6.png");
 		this.imgchao2cenario6 = loadImage("res_cenario/tiles/chao2_cenario6.png");
+
 
 		// veiculos
 		this.imgcaminhao_verdeF = loadImage("res_cenario/tiles/caminhao_verde_F.png");
@@ -556,6 +561,18 @@ public class Tiles {
 		if (valorDaPeca == 64) {
 			this.imgAtual = this.imgMeioBaixo;
 			this.colisao = false;
+		}
+
+		// tile 65: porta cenario 4 (lado esquerdo)
+		if (valorDaPeca == 65) {
+			this.imgAtual = this.imgportacenario4_E;
+			this.colisao = true;
+		}
+
+		// tile 66: porta cenario 4 (lado direito)
+		if (valorDaPeca == 66) {
+			this.imgAtual = this.imgportacenario4_D;
+			this.colisao = true;
 		}
 	}
 

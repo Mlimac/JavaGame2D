@@ -7,7 +7,7 @@ import javax.swing.*;
 public class TelaInicio extends JPanel implements KeyListener, Runnable {
 
     // Estado atual da tela
-    private String estado = "HISTORIA"; // HISTORIA → MENU
+    private String estado = "HISTORIA"; // HISTORIA e MENU
 
     private Moldura janela;
 
@@ -108,11 +108,11 @@ public class TelaInicio extends JPanel implements KeyListener, Runnable {
             desenharMenu(g2);
     }
 
-    // Método auxiliar: desenha texto com sombra (efeito 2D)
+    // Método auxiliar: desenha texto com sombra (faz um efeito 2D)
     private void desenharTexto2D(Graphics2D g2, String texto, int x, int y, Color cor) {
         // Sombra (deslocada 2px para baixo e para direita)
         g2.setColor(Color.BLACK);
-        g2.drawString(texto, x + 2, y + 2);
+        g2.drawString(texto, x + 3, y + 3);
         // Texto principal
         g2.setColor(cor);
         g2.drawString(texto, x, y);
@@ -175,7 +175,7 @@ public class TelaInicio extends JPanel implements KeyListener, Runnable {
             desenharTexto2D(g2, texto, ox, h / 2 + i * 50, cor);
         }
 
-        // Dica
+        // Dicas de navegação
         g2.setFont(new Font("Monospaced", Font.PLAIN, 16));
         String dica = "SETAS: navegar   ENTER: confirmar";
         int xd = (w - g2.getFontMetrics().stringWidth(dica)) / 2;

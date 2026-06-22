@@ -84,10 +84,13 @@ public class Painel extends JPanel {
 				// "Parabéns por finalizar o jogo!"
 				D2.setFont(new java.awt.Font("Arial", java.awt.Font.BOLD, 36));
 				String subtitulo = "Parabéns por finalizar o jogo!";
+				String subtitulo2 = "Aproveite suas pizzas :)";
+
 				int larguraSubtitulo = D2.getFontMetrics().stringWidth(subtitulo);
 				D2.setColor(java.awt.Color.WHITE);
 				D2.drawString(subtitulo, (this.getWidth() - larguraSubtitulo) / 2, 300);
-			}
+				D2.drawString(subtitulo2, (this.getWidth() - D2.getFontMetrics().stringWidth(subtitulo2)) / 2, 350);
+			 }
 		}
 
 		if (this.Posicao.equals("Sul")) {
